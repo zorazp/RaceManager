@@ -2,7 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var trackSchema = new Schema({  
-  name: { type: String },
+  name: {
+    type: String,
+    unique: true
+  },
   country: { type: String },
   sectors: [
     {
