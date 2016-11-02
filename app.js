@@ -5,6 +5,7 @@ var express = require("express"),
     mongoose = require('mongoose');
 
 // Connection to DB
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/racemanager', function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
@@ -15,9 +16,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-// Import Models and controllers
-var models = require('./models/track')(app, mongoose);
-var tracksCtrl = require('./controllers/tracks');
+// Import Models
+var trackModel = require('./models/track')(app, mongoose);
+var teamModel = require('./models/team')(app, mongoose);
+var driverModel = require('./models/driver')(app, mongoose);
+var manufacturerModel = require('./models/manufacturer')(app, mongoose);
+var categoryModel = require('./models/category')(app, mongoose);
+var seasonModel = require('./models/season')(app, mongoose);
 
 // Example Route
 var router = express.Router();
@@ -26,19 +31,15 @@ router.get('/', function(req, res) {
 });
 app.use(router);
 
-// API routes
-var tracks = express.Router();
+// Import Routes
+var trackRouter = require('./routes/track');
+var categoryRouter = require('./routes/category');
 
-tracks.route('/tracks')
-  .get(tracksCtrl.getTracks)
-  .post(tracksCtrl.setTracks);
+// API Routes
+app.use('/track', trackRouter);
+app.use('/category', categoryRouter);
 
-tracks.route('/track')
-  .post(tracksCtrl.setTrack);
-
-app.use('/populate', tracks);
-
-// Start server
+// Start Server
 app.listen(5000, function() {
   console.log("Node server running on http://localhost:5000");
 });

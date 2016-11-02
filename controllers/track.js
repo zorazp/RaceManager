@@ -1,4 +1,4 @@
-//File: controllers/tracks.js
+//File: controllers/track.js
 var mongoose = require('mongoose');
 var Track = mongoose.model('Track');
 
@@ -17,7 +17,6 @@ exports.setTrack = function(req, res) {
     country: req.body.country,
     sectors: req.body.sectors
   });
-
   track.save(function(err, track) {
     if (err)
       return res.status(500).send(err.message);
@@ -26,9 +25,12 @@ exports.setTrack = function(req, res) {
 };
 //POST - Insert a Track List
 exports.setTracks = function(req, res) {
-  Track.insertMany(req.body, function (err, tracks) {
-    if (err)
-      return res.status(500).send(err.message);
-    res.status(200).jsonp(tracks);
-  });
+  if (req.body instanceof Array)
+    Track.insertMany(req.body, function (err, tracks) {
+      if (err)
+        return res.status(500).send(err.message);
+      res.status(200).jsonp(tracks);
+    });
+  else
+    exports.setTrack(req, res);
 };
