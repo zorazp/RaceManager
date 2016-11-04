@@ -11,7 +11,6 @@ app.config(['$routeProvider', '$locationProvider',
         controller : "resultCtrl"
     })
     .otherwise({ redirectTo : "/" });
-    $locationProvider.html5Mode(true);
   }]);
  
 app.controller('homeCtrl', ['$scope', function($scope) {
