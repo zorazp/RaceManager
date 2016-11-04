@@ -1,11 +1,8 @@
-var express = require('express');
+var express = require('express'),
+	controller = require('../controllers/category'),
+	router = express.Router();
 
-//Controller
-var categoryCtrl = require('../controllers/category');
+router.route('/data/:id')
+  .get(controller.getData);
 
-var categoryRouter = express.Router();
-
-categoryRouter.route('/data/:id')
-  .get(categoryCtrl.getData);
-
-module.exports = categoryRouter;
+module.exports = router;

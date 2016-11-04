@@ -1,12 +1,9 @@
-var express = require('express');
+var express = require('express'),
+    controller = require('../controllers/track'),
+    router = express.Router();
 
-//Controller
-var trackCtrl = require('../controllers/track');
+router.route('/')
+  .get(controller.getTracks)
+  .post(controller.setTracks);
 
-var trackRouter = express.Router();
-
-trackRouter.route('/')
-  .get(trackCtrl.getTracks)
-  .post(trackCtrl.setTracks);
-
-module.exports = trackRouter;
+module.exports = router;
