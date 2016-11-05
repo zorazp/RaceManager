@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html ng-app="raceManager">
-<head>
-  <title>RaceManager</title>
-</head>
-<body>
-  <div ng-view></div>
-  <script src="/js/angular/angular.min.js"></script>
-  <script src="/js/angular/angular-route.min.js"></script>
-  <script src="/js/app.js"></script>
-</body>
+<html ng-app="driversManager">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=0">
+    <!-- Browser Tab Color -->
+    <meta name="theme-color" content="#bab8b8">
+    <meta name="msapplication-navbutton-color" content="#bab8b8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#bab8b8">
+    <title>Drivers Manager</title>
+    <link rel="stylesheet" 
+          href="https://fonts.googleapis.com/css?family=Lato:100,300">
+    <link rel="stylesheet" 
+          href="/stylesheets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/hamburgers/hamburgers.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/menubar.css">
+
+  </head>
+  <body>
+    <ng-include src="'/templates/navbar.html'"></ng-include>
+    <ng-include src="'/templates/menubar.html'"></ng-include>
+    <div class="dm-container" ng-view></div>
+    <!-- External Libs -->
+    <script src="/js/angular/angular.min.js"></script>
+    <script src="/js/angular/angular-route.min.js"></script>
+    <script src="/js/jQuery/jquery-3.1.1.min.js"></script>
+    <!-- User Libs -->
+    <script src="/js/app/app.js"></script>
+    <script src="/js/app/services.js"></script>
+    <script src="/js/app/controllers.js"></script>
+  </body>
 </html>

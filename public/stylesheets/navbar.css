@@ -1,0 +1,84 @@
+.nb-container {
+  height: 60px;
+  min-height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: #4e4e4e;
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #cecece;
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.08);
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+
+.nb-hamburger {
+  display: none;
+}
+
+.nb-owner {
+  cursor: pointer;
+}
+
+.nb-image {
+  background-image: url(/images/logo-d-grey-256.png);
+  background-repeat: no-repeat;
+  background-size: 56px 56px;
+  background-position: 50% 50%;
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+.nb-name {
+  padding-left: 10px;
+  font-weight: bold;
+  float: left;
+  line-height: 60px;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .nb-container {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+  .nb-hamburger.hamburger {
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: left;
+    cursor: pointer;
+  }
+  
+  .nb-hamburger:hover {
+    opacity: 1;
+  }
+
+  .nb-hamburger .hamburger-box {
+    height: 27px;
+  }
+
+  .nb-hamburger .hamburger-inner,
+  .nb-hamburger .hamburger-inner:before,
+  .nb-hamburger .hamburger-inner:after {
+    width: 30px;
+    background-color: #cecece;
+    border-radius: 0;
+  }
+
+  .nb-image {
+    float: none;
+    position: absolute;
+    left: calc(50% - 30px);
+  }
+
+  .nb-name {
+    display: none;
+  }
+
+}
