@@ -11,16 +11,52 @@
 
 body {
   background-color: #d4d4d4;
+  color: #4e4e4e;
 }
 
 .dm-container {
-	margin-top: 130px;
+  margin-top: 130px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.dm-section {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 150px;
+}
+
+.dm-box {
+  margin-top: 20px;
+  -webkit-transition: all 280ms cubic-bezier(.4,0,.2,1);
+  transition: all 280ms cubic-bezier(.4,0,.2,1);
+  will-change: box-shadow;
+  background-color: #f1f1f1;
+  float: left;
+  height: 300px;
+  width: 400px;
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.08);
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
 }
 
 @media only screen and (max-width: 768px) {
 
 	.dm-container {
+    margin-top: 10px;
 		margin-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
 	}
+
+  .dm-section {
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 80px;
+  }
+
+  .dm-box {
+    float: none;
+    width: 100%;
+  }
 
 }

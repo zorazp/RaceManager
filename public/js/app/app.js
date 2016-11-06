@@ -13,10 +13,12 @@ app.config(['$routeProvider', '$locationProvider',
         controller : "resultCtrl"
     })
     .when("/category/:id?", {
-        templateUrl : "templates/category.html"
+        templateUrl : "templates/category.html",
+        controller : "categoryCtrl"
     })
     .when("/driver/:id?", {
-        templateUrl : "templates/driver.html"
+        templateUrl : "templates/driver.html",
+        controller : "driverCtrl"
     })
     .otherwise({ redirectTo : "/" });
   }]);
